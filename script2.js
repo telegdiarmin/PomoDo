@@ -1,4 +1,4 @@
-const pomodoroLength = 0.5;
+const pomodoroLength = 0.2;
 const pomodoroSetLength = pomodoroLength * 60 * 1000;
 
 const timerState = {
@@ -33,9 +33,13 @@ function startTimer() {
   setMainButtonText();
   timerState.startTime = calculateCurrentTime();
   timerState.intervalId = setInterval(function () {
-    calculateRemainingTime();
-    saveTimer(calculateRemainingTime()); //Összevonható?
-    displayTimer();
+    if (timerState.remainingTime >= 1000) {
+      calculateRemainingTime();
+      saveTimer(calculateRemainingTime()); //Összevonható?
+      displayTimer();
+    } else {
+      finishedTimer();
+    }
   }, 1000);
 }
 
@@ -44,7 +48,7 @@ function stopTimer() {
   setMainButtonText();
   displayInitialTimer();
   clearInterval(timerState.intervalId);
-  console.log("Stopped!")
+  console.log("Stopped!");
 }
 
 function finishedTimer() {
@@ -57,11 +61,7 @@ function calculateRemainingTime() {
   const current = calculateCurrentTime();
   const elapsed = current - timerState.startTime;
   console.log(elapsed);
-  if (elapsed >= pomodoroSetLength) {
-    finishedTimer();
-  } else {
-    return pomodoroSetLength - elapsed;
-  }
+  return pomodoroSetLength - elapsed;
 }
 
 function saveTimer(remainingTime) {
