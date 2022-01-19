@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;600&family=Maven+Pro:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="script2.js" defer></script>
     <title>PomoDo</title>
   </head>
@@ -11,28 +22,63 @@
     <header></header>
     <main>
       <section id="app">
-        <div id="js-counter"></div>
-        <button id="js-main-button"></button>
+        <div id="counter-frame" class="counter-frame">
+          <div id="js-counter" class="counter"></div>
+        </div>
+        <button id="js-main-button" class="main-button"></button>
       </section>
+
       <section id="about">
-        <h2>A pomodoro módszerről</h2>
+        <h2>Mi az a pomodoro?</h2>
+        <div class="underline"></div>
         <p>
           A pomodoro egy időmenedzsment-módszer, amit Francesco Cirillo talált
           ki az 1980-as évek végén. Az alapötlete az, hogy az elvégzendő
           feladatokat egy időzítő segítségével kisebb egységekre - szakaszokra -
-          bontsa. Az egyes szakaszok hossza hagyományosan 25 perc, melyeket
-          rövid szünetek követnek. A szakaszok neve <em>"pomodoro"</em>, a
-          paradicsom olasz kifejezése alapján, ezzel utalva arra a paradicsom
-          alakú konyhai időzítőre, melyet Cirillo egyetemistaként használt.
+          bontsa, ezzel növelve a hatékonyságot. Az egyes szakaszok hossza
+          hagyományosan 25 perc, melyeket rövid szünetek követnek. A szakaszok
+          neve <em>"pomodoro"</em>, a paradicsom olasz kifejezése alapján, ezzel
+          utalva arra a paradicsom alakú konyhai időzítőre, melyet Cirillo
+          egyetemistaként használt. Olvass róla többet a
+          <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+            >Wikipédián!</a
+          >
         </p>
-        <h2>Az alkalmazásról</h2>
+        <h2>Mi ez az app?</h2>
+        <div class="underline"></div>
+        <p>
+          Beállíthatsz vele egy időzítőt, amíg csak a munkádra koncentrálsz. Ha
+          lejárt az időzítő, ideje tartanod egy pár perces szünetet, aztán ha
+          kipihented magad, folytathatod a munkádat!
+        </p>
+        <h2>Ki csinálja ezt az appot?</h2>
+        <div class="underline"></div>
         <p>
           Az alkalmazást tanulási céllal
-          <em>Telegdi Ármin</em> fejleszti. Vedd fel velem a kapcsolatot a
-          <a href="https://github.com/telegdiarmin">GitHub-on</a>! Minden jog fenntartva!
+          <em>Telegdi Ármin</em> fejleszti. Vedd fel vele a kapcsolatot a
+          <a href="https://github.com/telegdiarmin">GitHub-on!</a> Minden jog
+          fenntartva!
         </p>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://facebook.com" id="contact-facebook">
+            <span class="material-icons-outlined">account_circle</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:armin.telegdigmail.com" target="_blank">
+            <span class="material-icons-outlined">email</span></a
+          >
+        </li>
+        <li>
+          <a href="tel:+36309334016" id="contact-phone">
+            <span class="material-icons-outlined">call</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>
