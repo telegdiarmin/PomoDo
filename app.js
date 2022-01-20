@@ -1,4 +1,4 @@
-const pomodoroLength = 0.2;
+const pomodoroLength = 25;
 const pomodoroSetLength = pomodoroLength * 60 * 1000;
 
 const timerState = {
@@ -8,7 +8,7 @@ const timerState = {
   intervalId: undefined,
 };
 
-const alarm = new Audio("Audio/alarm.mp3");
+const alarm = new Audio("Audio/Leapfrog.ogg");
 
 const counterFrame = document.querySelector("#js-counter");
 const mainButton = document.querySelector("#js-main-button");
