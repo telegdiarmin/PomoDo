@@ -1,12 +1,15 @@
 * {
     --font-counter: "Azeret Mono", monospace;
     --font-h2: "Maven Pro", sans-serif;
+    --font-h3: "Maven Pro", sans-serif;
     --font-p: "Montserrat", sans-serif;
   
     --color-background-app: rgb(255, 77, 77);
     --color-background-section: rgb(102, 102, 255);
     --color-link-normal: rgb(64, 64, 64);
     --color-link-hover: rgb(78, 78, 78);
+    --color-text-main: rgb(255, 255, 255);
+    --color-text-modal: rgb(45, 45, 45);
     --color-button-normal: rgb(255,255,255);
     --color-button-hover: rgb(230, 230, 230);
   
@@ -74,13 +77,19 @@
   
   #about {
     background-color: var(--color-background-section);
-    color: white;
+    color: var(--color-text-main);
     padding: 3rem 20%;
   }
   
   h2 {
     font-family: var(--font-h2);
     font-size: 2rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-family: var(--font-h3);
+    font-size: 1.5rem;
     font-weight: 700;
   }
   
