@@ -12,55 +12,63 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/Styles/modal.css" />
     <link rel="stylesheet" href="/Styles/styles.css" />
-    <script src="/Scripts/settings.js"></script>
+    <script src="/Scripts/settings.js" defer></script>
     <script src="/Scripts/app.js" defer></script>
     <title>PomoDo</title>
   </head>
   <body>
     <aside>
-      <div id="backdrop">
-        <div id="modal-main-settings">
-          <form action="/" method="GET">
-            <ul>
-              <li>
-                <h3>Időzítő</h3>
-              </li>
-              <li>
-                <button class="btn-modal-main btn-decrease">
-                  <span class="material-icons-outlined"> remove </span>
-                </button>
-                <input
-                  type="number"
-                  name="duration-counter"
-                  id="input-counter-duration"
-                  placeholder="25"
-                />
-                <button class="btn-modal-main btn-increase">
-                  <span class="material-icons-outlined"> add </span>
-                </button>
-              </li>
-              <li>
-                <h3>Hangjelzés</h3>
-              </li>
-              <li>
-                <select name="select-ringtone" id="select-ringtone">
-                  <option value="">Leapfrog</option>
-                  <option value="">Marimba</option>
-                  <option value="">Twin Bell</option>
-                  <!-- Listát JS-ből generálni! -->
-                </select>
-              </li>
-              <li>
-                <button class="btn-modal-main btn-submit-settings">OK</button>
-              </li>
-            </ul>
-          </form>
-        </div>
+      <div id="backdrop"></div>
+      <div id="modal-main-settings">
+        <form action="/" method="GET">
+          <ul>
+            <li>
+              <h3>Időzítő</h3>
+              <span class="material-icons-outlined" id="btn-close-main-settings"> close </span>
+            </li>
+            <li>
+              <button class="btn-modal-main btn-decrease">
+                <span class="material-icons-outlined"> remove </span>
+              </button>
+              <input
+                type="number"
+                name="duration-counter"
+                id="input-counter-duration"
+                placeholder="25"
+              />
+              <button class="btn-modal-main btn-increase">
+                <span class="material-icons-outlined"> add </span>
+              </button>
+            </li>
+            <li>
+              <h3>Hangjelzés</h3>
+            </li>
+            <li>
+              <select name="select-ringtone" id="select-ringtone">
+                <option value="">Leapfrog</option>
+                <option value="">Marimba</option>
+                <option value="">Twin Bell</option>
+                <!-- Listát JS-ből generálni! -->
+              </select>
+            </li>
+            <li>
+              <button class="btn-modal-main btn-submit-settings">OK</button>
+            </li>
+          </ul>
+        </form>
       </div>
     </aside>
     <header></header>
@@ -69,7 +77,10 @@
         <div id="counter-frame" class="counter-frame">
           <div id="js-counter" class="counter"></div>
         </div>
-        <button id="js-main-button" class="main-button"></button>
+        <span id="main-button-background">
+          <button id="js-main-button" class="main-button"></button>
+          <span id="main-settings-button" class="material-icons">settings</span>
+        </span>
       </section>
 
       <section id="about">
