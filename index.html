@@ -37,19 +37,33 @@
           <ul>
             <li>
               <h3>Időzítő</h3>
-              <span class="material-icons-outlined" id="btn-close-main-settings"> close </span>
+              <span
+                class="material-icons-outlined"
+                id="btn-close-main-settings"
+              >
+                close
+              </span>
             </li>
             <li>
-              <button class="btn-modal-main btn-decrease">
+              <button
+                type="button"
+                class="btn-modal-main btn-decrease"
+                id="js-btn-decrease-timer"
+              >
                 <span class="material-icons-outlined"> remove </span>
               </button>
               <input
                 type="number"
-                name="duration-counter"
-                id="input-counter-duration"
-                placeholder="25"
+                name="duration-timer"
+                id="input-timer-duration"
+                value="25"
+                readonly
               />
-              <button class="btn-modal-main btn-increase">
+              <button
+                type="button"
+                class="btn-modal-main btn-increase"
+                id="js-btn-increase-timer"
+              >
                 <span class="material-icons-outlined"> add </span>
               </button>
             </li>
@@ -58,14 +72,20 @@
             </li>
             <li>
               <select name="select-ringtone" id="select-ringtone">
-                <option value="">Leapfrog</option>
-                <option value="">Marimba</option>
-                <option value="">Twin Bell</option>
+                <option value="leapfrog">Leapfrog</option>
+                <option value="marimba">Marimba</option>
+                <option value="twinBell">Twin Bell</option>
                 <!-- Listát JS-ből generálni! -->
               </select>
             </li>
             <li>
-              <button class="btn-modal-main btn-submit-settings">OK</button>
+              <button
+                type="button"
+                class="btn-modal-main btn-submit-settings"
+                id="btn-submit-settings"
+              >
+                OK
+              </button>
             </li>
           </ul>
         </form>

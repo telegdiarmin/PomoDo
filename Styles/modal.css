@@ -70,9 +70,10 @@
   background-color: rgb(200, 200, 200);
 }
 
-#input-counter-duration {
+#input-timer-duration {
   margin: 0 1.5rem;
   min-width: 0;
+  height: 30px;
   text-align: center;
   background-color: rgb(220, 220, 220);
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
@@ -80,7 +81,7 @@
   border-radius: 5px;
 }
 
-#input-counter-duration:focus {
+#input-timer-duration:focus {
   outline: none;
 }
 

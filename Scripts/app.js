@@ -1,14 +1,27 @@
-const pomodoroLength = 25;
-const pomodoroSetLength = pomodoroLength * 60 * 1000;
+let pomodoroLength = 25;
+let shortBreakLength = 5;
+let longBreakLength = 15;
+
+//const pomodoroSetLength = pomodoroLength * 60 * 1000;
 
 const timerState = {
   isRunning: false,
+  isPomodoroActive: false,
+  isShortBreakActive: false,
+  isLongBreakActive: false,
+  timerSetLength: 0,
   startTime: 0,
   remainingTime: 0,
   intervalId: undefined,
 };
 
-const alarm = new Audio("Audio/Leapfrog.ogg");
+const alarms = {
+  leapfrog: new Audio("Audio/Leapfrog.ogg"),
+  marimba: new Audio("Audio/Marimba.ogg"),
+  twinBell: new Audio("Audio/Twin Bell.ogg"),
+};
+
+let selectedAlarm = alarms.leapfrog;
 
 const counterFrame = document.querySelector("#js-counter");
 const mainButton = document.querySelector("#js-main-button");
@@ -23,8 +36,14 @@ function calculateCurrentTime() {
   return new Date(Date.now()).getTime();
 }
 
+function setTimerLength() {
+  timerState.timerSetLength = pomodoroLength * 60 * 1000; //Egyelőre hard-coded
+}
+
 function displayInitialTimer() {
-  timerState.remainingTime = pomodoroSetLength;
+  //timerState.remainingTime = pomodoroSetLength;
+  setTimerLength();
+  timerState.remainingTime = timerState.timerSetLength;
   displayTimer();
 }
 
@@ -54,21 +73,31 @@ function stopTimer() {
 function finishedTimer() {
   stopTimer();
   console.log("Finished!");
-  alarm.play();
+  selectedAlarm.play();
 }
 
 function calculateRemainingTime() {
   const current = calculateCurrentTime();
   const elapsed = current - timerState.startTime;
   console.log(elapsed);
-  return pomodoroSetLength - elapsed;
+  return timerState.timerSetLength - elapsed;
 }
 
 function saveTimer(remainingTime) {
   timerState.remainingTime = remainingTime;
 }
 
+// function displayTimer() {
+//   time = timerState.remainingTime / 1000;
+//   minutes = Math.floor(time / 60);
+//   minutes = minutes < 10 ? "0" + minutes : minutes;
+//   seconds = Math.round(time % 60);
+//   seconds = seconds < 10 ? "0" + seconds : seconds;
+//   counterFrame.innerHTML = `${minutes}:${seconds}`;
+// }
+
 function displayTimer() {
+  setTimerLength();
   time = timerState.remainingTime / 1000;
   minutes = Math.floor(time / 60);
   minutes = minutes < 10 ? "0" + minutes : minutes;
