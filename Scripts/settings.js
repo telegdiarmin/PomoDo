@@ -1,3 +1,5 @@
+const htmlElement = document.documentElement;
+
 const settingsBtnElement = document.getElementById("main-settings-button");
 const closeMainSettingsBtnElement = document.getElementById(
   "btn-close-main-settings"
@@ -20,12 +22,13 @@ const ringtoneSelectElement = document.getElementById("select-ringtone");
 function showMainSettingsModalElement() {
   backdropElement.style.display = "block";
   mainSettingsModalElement.style.display = "block";
-  console.log("Modal!");
+  htmlElement.classList.add("noscroll");
 }
 
 function hideMainSettingsModalElement() {
   backdropElement.style.display = "none";
   mainSettingsModalElement.style.display = "none";
+  htmlElement.classList.remove("noscroll");
 }
 
 function increaseCounterDuration(event) {

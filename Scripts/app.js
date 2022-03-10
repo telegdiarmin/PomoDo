@@ -38,12 +38,11 @@ function calculateCurrentTime() {
 
 function setTimerLength() {
   timerState.timerSetLength = pomodoroLength * 60 * 1000; //Egyelőre hard-coded
+  timerState.remainingTime = timerState.timerSetLength;
 }
 
 function displayInitialTimer() {
-  //timerState.remainingTime = pomodoroSetLength;
   setTimerLength();
-  timerState.remainingTime = timerState.timerSetLength;
   displayTimer();
 }
 
@@ -51,15 +50,17 @@ function startTimer() {
   timerState.isRunning = !timerState.isRunning;
   setMainButtonText();
   timerState.startTime = calculateCurrentTime();
-  timerState.intervalId = setInterval(function () {
-    if (timerState.remainingTime >= 1000) {
-      calculateRemainingTime();
-      saveTimer(calculateRemainingTime()); //Összevonható?
-      displayTimer();
-    } else {
-      finishedTimer();
-    }
-  }, 1000);
+  timerState.intervalId = setInterval(maintainTimer, 1000);
+}
+
+function maintainTimer() {
+  if (timerState.remainingTime >= 1000) {
+    calculateRemainingTime();
+    saveTimer(calculateRemainingTime()); //Összevonható?
+    displayTimer();
+  } else {
+    finishedTimer();
+  }
 }
 
 function stopTimer() {
@@ -87,17 +88,7 @@ function saveTimer(remainingTime) {
   timerState.remainingTime = remainingTime;
 }
 
-// function displayTimer() {
-//   time = timerState.remainingTime / 1000;
-//   minutes = Math.floor(time / 60);
-//   minutes = minutes < 10 ? "0" + minutes : minutes;
-//   seconds = Math.round(time % 60);
-//   seconds = seconds < 10 ? "0" + seconds : seconds;
-//   counterFrame.innerHTML = `${minutes}:${seconds}`;
-// }
-
 function displayTimer() {
-  setTimerLength();
   time = timerState.remainingTime / 1000;
   minutes = Math.floor(time / 60);
   minutes = minutes < 10 ? "0" + minutes : minutes;
